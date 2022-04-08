@@ -1,0 +1,279 @@
+* {
+    font-size: 14px;
+}
+
+.container {
+    max-width: 500px;
+    min-height: 800px;
+    margin: 0 auto;
+    background-color: #FBFFE2;
+}
+
+.container .nav {
+    padding: 3% 5%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.container .nav span {
+    font-weight: bolder;
+    cursor: pointer;
+    color: #FF9999;
+}
+
+.container .nav button {
+    border: none;
+    color: #FF9999;
+    background-color: #FBFFE2;
+    cursor: pointer;
+    font-size: 2rem;
+    padding-top: 0;
+    font-weight: bolder;
+}
+
+.container .nav #delete-btn {
+    font-size: 1.2rem;
+    margin-top: 0.6rem;
+    letter-spacing: 1px;
+}
+
+.container .message-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 310px;
+    /* margin: 1rem auto; */
+}
+
+.container .message-wrapper .sended_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 30px;
+    white-space: nowrap;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    width: 80%;
+    margin-top: 15px;
+    line-height: 110%;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+}
+
+.container .message-wrapper .send_user {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 0 auto 4%;
+}
+
+.container .message-wrapper .send_user span:first-child {
+    /* text-decoration: underline; */
+    text-underline-position: under;
+    color: dimgray;
+    font-weight: bolder;
+}
+
+.container .message-wrapper .content {
+    /* margin-top: 85px; */
+    width: 230px;
+    height: 13rem;
+    overflow: auto;
+    /*padding: 10px;*/
+    /* min-height: 20rem; */
+    margin: 90px auto 0 auto;
+    /* background-color: #FFEBCC; */
+    /* border-radius: 1.8rem; */
+}
+
+.container .message-wrapper .content p {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    /* padding: 1.2rem 1.5rem; */
+    line-height: 1.4rem;
+    opacity: 0.7;
+}
+
+
+.container .gifticon_container {
+    width: 273px;
+    height: 640px;
+    background-image: url("https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/gifticon2.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+    padding: 40px;
+}
+
+.container .gifticon {
+    margin: -6px auto 20px;
+}
+
+.container .gifticon .preview {
+    cursor: pointer;
+    border-radius: 6px;
+    width: 200px;
+}
+
+
+.container .modal {
+    position: absolute;
+    top: 0;
+    width: 500px;
+    height: 800px;
+    backdrop-filter: blur(3px);
+}
+
+.container .modal .overlay {
+    background: white;
+    border-radius: 1rem;
+}
+
+.container .modal .overlay .wrapper button:last-child {
+    background-color: #FF9999;
+}
+
+@media (min-width: 500px) {
+    .container .message-wrapper .send_user span:first-child {
+        font-size: 1.4rem;
+    }
+
+    .container .message-wrapper .send_user span:last-child {
+        font-size: 1.3rem;
+    }
+
+    .container .popup {
+        z-index: 5;
+        position: absolute;
+        top: 0;
+        width: 500px;
+        height: 800px;
+        backdrop-filter: blur(3px);
+    }
+
+    .container .popup .overlay {
+        display: grid;
+        grid-template-rows: 3.2rem 42rem;
+        justify-content: center;
+        margin-top: 24%;
+        width: 430px;
+        margin-left: 32px;
+    }
+
+
+    .container .popup .overlay .close-icon {
+        grid-row-end: 2;
+        grid-row-start: 1;
+        text-align: end;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .container .popup .overlay .close-icon img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .container .popup .overlay .preview {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        width: 100%;
+        height: 80%;
+        margin: 0 auto;
+    }
+
+    .container .modal .overlay {
+        width: 60%;
+        height: 24%;
+        margin: 56% 20%;
+    }
+
+    .container .modal .overlay .wrapper {
+        padding-top: 3rem;
+    }
+
+    .container .modal .overlay .wrapper p {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .container .modal .overlay .wrapper button {
+        width: 8rem;
+        height: 3rem;
+        border: none;
+        border-radius: 2rem;
+        margin-left: 2rem;
+        cursor: pointer;
+    }
+
+}
+
+@media (min-width: 300px) and (max-width: 500px) {
+    .container .message-wrapper .send_user span {
+        font-size: 1.1rem;
+    }
+
+    .container .popup {
+        z-index: 5;
+        position: absolute;
+        top: 0;
+        width: 96vw;
+        height: 144vh;
+        backdrop-filter: blur(12px);
+    }
+
+    .container .popup .overlay {
+        display: grid;
+        grid-template-rows: 3.2rem 36rem;
+        justify-content: center;
+        margin-top: 24%;
+    }
+
+    .container .popup .overlay .close-icon {
+        grid-row-end: 2;
+        grid-row-start: 1;
+        text-align: end;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .container .popup .overlay .close-icon img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .container .popup .overlay .preview {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        height: 100%;
+    }
+
+    .container .modal .overlay {
+        width: 68vw;
+        height: 32vh;
+        margin: 42vh 15vw;
+    }
+
+    .container .modal .overlay .wrapper {
+        padding-top: 7vh;
+    }
+
+    .container .modal .overlay .wrapper p {
+        text-align: center;
+        margin-bottom: 6vh;
+    }
+
+    .container .modal .overlay .wrapper button {
+        width: 26vw;
+        height: 8vh;
+        border: none;
+        border-radius: 2rem;
+        margin-left: 4vw;
+        cursor: pointer;
+    }
+}

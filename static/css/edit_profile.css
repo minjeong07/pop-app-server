@@ -1,0 +1,274 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.edit-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto 0;
+    height: 90vh;
+    background-color: #faffe1;
+    padding: 10px;
+}
+
+
+#edit_box_box {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    margin: auto;
+    padding-top: 4%;
+}
+
+.flex {
+    text-align: center;
+}
+
+.flex-colum {
+    display: flex;
+    text-align: center;
+    flex-flow: column;
+    justify-items: center;
+    padding-bottom: 3%;
+
+}
+
+.flex > p {
+    padding-top: 5%;
+    line-height: 100%;
+    padding-right: 70px;
+    width: 40%;
+}
+
+.flex > img {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+}
+
+
+#edit_pro_label {
+    color: white;
+    background-color: #FFAFAF;
+    padding: 0.5em 0.75em;
+    font-size: 13px;
+    line-height: normal;
+    vertical-align: middle;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: 0.4em;
+    width: 88%;
+    margin-top: 15px;
+    font-weight: 800;
+}
+
+#edit_pro_label:hover {
+    color: #FFAFAF;
+    background-color: #FFFFFF;
+    border-color: #FFAFAF;
+}
+
+.flex-colum input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+
+}
+
+
+/*태그관련 css*/
+#tagbox {
+    text-align: left;
+}
+
+#tagbox h1 {
+    text-align: left;
+    color: #FF9999;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#edit_box_box ul {
+    background-color: #F7E9D7;
+    border-radius: 10px;
+    padding: 18px 10px;
+}
+
+#edit_box_box ul li {
+    display: inline-block;
+    margin: 10px;
+    font-size: 14px;
+    letter-spacing: -.5px;
+}
+
+
+[role="option"] {
+    padding: 4px 8px;
+    color: white;
+    background-color: #FFAFAF;
+
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: 0.25em;;
+}
+
+/*
+[role="option"][aria-selected]{
+            padding: 4px 8px;
+
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: 0.25em;;
+    color: black;
+    background-color: #FF9292;
+
+}
+*/
+
+#tag-list > .active {
+    padding: 4px 8px;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    border-radius: 0.25em;;
+    color: #FF9292;
+    background-color: #FFFFFF;
+    border-color: #FF9292;
+}
+
+.del-btn {
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+/*태그관련 css*/
+
+#submit_button {
+    color: white;
+    background-color: #FFAFAF;
+    /*position: absolute;*/
+    bottom: 10px;
+    width: 100%;
+    padding: 0.5em 0.75em;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: 0.25em;
+    text-decoration: none;
+}
+
+#rebert_button {
+    color: white;
+    background-color: #FFAFAF;
+    /*position: absolute;*/
+    bottom: 55px;
+    width: 100%;
+    padding: 0.5em 0.75em;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: 0.25em;
+    font-weight: 800;
+
+}
+
+#rebert_button:hover {
+    color: #FFAFAF;
+    background-color: #FFFFFF;
+    border-color: #FFAFAF;
+}
+
+#tempspace {
+    display: grid;
+    width: 75%;
+    margin: 0 auto 25px;
+    grid-template-rows: repeat(3, 33%);
+    grid-template-columns: 2fr 3fr;
+    column-gap: 5%;
+}
+
+#tempspace .name {
+    opacity: 0.9;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: left;
+    letter-spacing: -0.2px;
+    padding-top: 10px;
+    padding-left: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+#tempspace .name p {
+    margin: 0;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+
+#tempspace .name span {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+#tempspace .profile_img {
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#tempspace .bio {
+    text-align: left;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    padding-left: 15px;
+    padding-top: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+#tempspace .bio p {
+    margin: 0;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+
+#tempspace .bio span {
+    font-size: 13px;
+    display: -webkit-box;
+    opacity: 0.9;
+}

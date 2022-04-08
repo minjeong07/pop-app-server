@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Intro{% endblock %}
+
+{% block head %}
+
+    <link rel='stylesheet' href="{% static 'css/signup.css' %}" media='screen'>
+    <!--<link rel='stylesheet' href="/static/css/signup.css" media='screen'>-->
+{% endblock %}
+
+{% block main %}
+    <div class="signup-box">
+        <img class="logo" src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/logo_resize.png"/>
+        <form class="form-area" method="post" action="/sign-up/">
+            {% csrf_token %}
+            <div class="form-group mt-2 mb-2">
+                <label for="username">이름</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group mt-2 mb-2">
+                <label for="password">비밀번호</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="form-group mt-2 mb-2">
+                <label for="password2">비밀번호 확인</label>
+                <input type="password" class="form-control" id="password2" name="password2">
+            </div>
+            <div class="form-group mt-2 mb-2">
+                <label for="bio">소개글</label>
+                <textarea type="text" class="form-control" id="bio" name="bio"
+                          style="height: 90px; font-size:14px;" placeholder="'나'에 대한 소개나 인사말을 작성해 주세요"></textarea>
+            </div>
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <div style="text-align: center">
+                <button type="submit" class="btn to_signup">회원가입</button>
+                <a href="/sign-in/" class="btn to_login">로그인 페이지로</a>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'js/signup.js' %}"></script>
+{% endblock %}

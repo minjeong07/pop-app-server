@@ -1,0 +1,257 @@
+@font-face {
+    font-family: "카페24 써라운드 에어";
+    src: url("https://sparta-team11.s3.ap-northeast-2.amazonaws.com/fonts/Cafe24SsurroundAir.ttf");
+}
+
+body{
+    /*max-width: 500px;*/
+    /*position: relative;*/
+    /*margin: auto;*/
+    /*overflow-x: hidden;*/
+}
+
+#navbar {
+    background: rgba(255, 175, 175, 1);
+    color: black;
+    position: relative;
+    top: 0;
+    height: 80px;
+    line-height: 80px;
+    /*width: 100%;*/
+    max-width: 500px;
+    z-index: 5;
+    margin: 0 auto;
+}
+
+.nav-wrapper {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    height: 80px;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(7,1fr);
+    font-size: 0.1rem;
+}
+.nav-wrapper .logo {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.logo img {
+    display: inline-block;
+    margin: 0;
+    height: 80px;
+    /*grid-area: a;*/
+}
+
+#menu {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    transition: transform 0.5s ease-out;
+    -webkit-transition: transform 0.5s ease-out;
+    color: white;
+    height: 80px;
+}
+
+#menu li a {
+    color: white;
+}
+
+#logout {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.5s ease-out;
+    -webkit-transition: transform 0.5s ease-out;
+    width: 100%;
+    height: 80px;
+    grid-column-start: 7;
+    grid-column-end: 8;
+}
+
+.burger {
+    max-width: 25px;
+}
+
+/*                                */
+/*                               */
+.mBtn a {
+    display: block;
+}
+
+.mNav {
+    z-index: 2;
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    /*right: -100%;*/
+    width: 40%;
+    height: 100vmax;
+    transition: all 0.5s ease;
+}
+
+.mNav.on {
+    right: 0;
+}
+
+.bg-shadow {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    cursor: pointer;
+}
+
+.sub {
+    position: relative;
+    top: 120px;
+    padding-left: 5px;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 2%;
+    display: block;
+}
+
+.closeBtn a {
+    display: block;
+
+}
+
+.sub li a {
+    display: block;
+    font-size: 1.4rem;
+    padding: 10px 20px;
+    border-bottom: 1px solid #d1d4d8;
+    color: black;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+#navbar li {
+    display: inline-block;
+}
+
+#navbar li a {
+    display: block;
+    font-size: 0.8em;
+    height: 50px;
+    letter-spacing: 1px;
+    margin: 0 1px;
+    padding: 0 1px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+
+#navbar li a:hover {
+    color: rgb(28, 121, 184);
+    transition: all 1s ease;
+    -webkit-transition: all 0.8s ease;
+}
+
+.sub li a:hover {
+    color: rgb(28, 121, 184);
+    transition: all 1s ease;
+    -webkit-transition: all 0.8s ease;
+}
+
+/*#navbar li a:before, #navbar li a:after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    width: 0%;*/
+/*    height: 1px;*/
+/*    bottom: -1px;*/
+/*    background: rgb(13, 26, 38);*/
+/*}*/
+
+.sub li a:before, .sub li a:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: -1px;
+    background: rgb(13, 26, 38);
+}
+
+/*#navbar li a:before {*/
+/*    left: 0;*/
+/*    transition: 0.5s;*/
+/*}*/
+
+.sub li a:before {
+    left: 0;
+    transition: 0.5s;
+}
+
+/*#navbar li a:after {*/
+/*    background: rgb(13, 26, 38);*/
+/*    right: 0;*/
+/*}*/
+
+.sub li a:after {
+    background: rgb(13, 26, 38);
+    right: 0;
+}
+
+/*#navbar li a:hover:before {*/
+/*    background: rgb(13, 26, 38);*/
+/*    width: 100%;*/
+/*    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);*/
+/*}*/
+
+.sub li a:hover:before{
+    background: rgb(13, 26, 38);
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/*#navbar li a:hover:after {*/
+/*    background: transparent;*/
+/*    width: 100%;*/
+/*}*/
+
+.sub li a:hover:after{
+    background: transparent;
+    width: 100%;
+}
+
+
+#all-container {
+    z-index: 3;
+    /*padding-top: 70px;*/
+
+}
+
+#base_contain {
+    max-width: 500px;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    min-height: 750px;
+    background-color: #faffe1;
+    padding: 10px;
+}
+
+ul.sub div.menu li p {
+    line-height: 25px;
+}

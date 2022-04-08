@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}main{% endblock %}
+
+{% block head %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel='stylesheet' href="{% static 'css/main.css' %}" media='screen'>
+    <!--<link rel='stylesheet' href="/static/css/main.css" media="screen">-->
+{% endblock %}
+{% block main %}
+    <div class="cate">
+        <p></p>
+        <span>NEW</span>
+        <p></p>
+    </div>
+    <ul class="new-users">
+        {% for user in new %}
+            <li class="user-box" onclick="location.href='/{{ user }}'">
+                {% if user.profile_img == '' %}
+                    <img src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/anonymous.png"/>
+                {% else %}
+                    <img src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/{{ user.profile_img }}"/>
+                {% endif %}
+                <p class="to">To.</p>
+                <p class="name">{{ user }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="cate">
+        <p></p>
+        <span>HOT</span>
+        <p></p>
+    </div>
+    <ul class="new-users">
+        {% for user in hot %}
+            <li class="user-box" onclick="location.href='/{{ user }}'">
+                {% if user.profile_img == '' %}
+                    <img src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/anonymous.png"/>
+                {% else %}
+                    <img src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/{{ user.profile_img }}"/>
+                {% endif %}
+                <p class="to">To.</p>
+                <p class="name">{{ user }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

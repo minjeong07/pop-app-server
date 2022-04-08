@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}프로필 변경{% endblock %}
+
+{% block head %}
+    <link rel='stylesheet' href="{% static 'css/edit_profile.css' %}" media='screen'>
+    <!--<link rel='stylesheet' href="/static/css/edit_profile.css" media='screen'>-->
+
+{% endblock %}
+
+{% block main %}
+
+    <div class="edit-box">
+        <div style="width: 100%; height: 40px;">
+            {% if modified %}
+                <p style="float:right;">&#x2705; {{ modified }}</p>
+            {% endif %}
+        </div>
+        <form method="POST" action="/mypage/" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="edit_box_box">
+                <div class="flex-colum" id="tempspace">
+                    <div class="name">
+                        <p>이름</p>
+                        <span>{{ user.username }}</span>
+                    </div>
+                    <div class="profile_img">
+                        <div class="flex">
+                            {% if user.profile_img %}
+                                <img id="blah" src="{{ user.profile_img.url }}">
+                            {% else %}
+                                <img id="blah" src="{% static 'img/anonymous.png' %}" alt="프로필 이미지를 업데이트하세요">
+                            {% endif %}
+                        </div>
+                        <label for="input_file" id="edit_pro_label">이미지 업로드</label>
+                        <input type="file" id="input_file" onchange="readURL(this);" name="imgs"/>
+                    </div>
+                    <div class="bio">
+                        <p>소개글</p>
+                        <span>{{ user.bio }}</span>
+                    </div>
+                </div>
+                <div class="flex-colum" id="tagbox">
+                    <h1 style="text-align: left; color: #FF9999; margin-top: 20px;">선호 태그 설정</h1>
+                    <ul id="tag-list" tabindex="0" role="listbox" aria-labelledby="colorOptions"
+                        aria-multiselectable="true">
+                        <li class='tag-item' role="option" id="tag1"> 다이어트 <span class='del-btn'
+                                                                                 idx='" + counter + "'></span></li>
+                        <li class='tag-item' role="option" id="tag2"> 캠핑 <span class='del-btn'
+                                                                               idx='" + counter + "'></span></li>
+                        <li class='tag-item' role="option" id="tag3"> 자동차 <span class='del-btn'
+                                                                                idx='" + counter + "'></span></li>
+                        <li class='tag-item' role="option" id="tag4"> 골프 <span class='del-btn'
+                                                                               idx='" + counter + "'></span></li>
+                        <li class='tag-item' role="option" id="tag5"> 요리 <span class='del-btn'
+                                                                               idx='" + counter + "'></span></li>
+                        <li class='tag-item' role="option" id="tag6"> 음악 <span class='del-btn'
+                                                                               idx='" + counter + "'></span></li>
+                        <li class='tag-item' role="option" id="tag7"> 책 <span class='del-btn'
+                                                                              idx='" + counter + "'></span></li>
+                        <li class='tag-item' role="option" id="tag8"> 술 <span class='del-btn'
+                                                                              idx='" + counter + "'></span></li>
+                        <li class='tag-item' role="option" id="tag9"> 게임 <span class='del-btn'
+                                                                               idx='" + counter + "'></span></li>
+                        <li class='tag-item' role="option" id="tag10"> 등산 <span class='del-btn'
+                                                                                idx='" + counter + "'></span></li>
+                    </ul>
+                </div>
+                <div class="flex">
+                </div>
+                <ul id="hidden_origin_tags" style="display: none;">
+                    {% for tag in tag_list %}
+                        <li>{{ tag }}</li>
+                    {% endfor %}
+                </ul>
+                <input type="submit" role="button" id="rebert_button" value="수정하기">
+                {#                <a href="/{{ user.id }}" id="submit_button" value="메시지 확인하기">메시지 확인하기</a>#}
+            </div>
+        </form>
+    </div>
+
+
+    <script src="{% static 'js/edit_profile.js' %}"></script>
+    <!-- <script src="/static/js/edit_profile.js"></script> -->
+{% endblock %}

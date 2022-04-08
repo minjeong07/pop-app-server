@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}main{% endblock %}
+
+{% block head %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel='stylesheet' href="{% static 'css/card_list.css' %}" media='screen'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <!--<link rel="stylesheet" href="/static/css/card_list.css" media="screen">-->
+{% endblock %}
+
+
+{% block main %}
+    <div id="container">
+        <form method="GET" action="/card/write/{{ user_id }}">
+            <div class="to_whom">
+                <div class="left_wrapper">
+                    {% if user_img == '' %}
+                        <img src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/anonymous.png"/>
+                    {% else %}
+                        <img src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/{{ user_img }}"/>
+                    {% endif %}
+                    <p>{{ username }}</p>
+                </div>
+                {% if bio == '' %}
+                    <p class="right-wrapper"></p>
+                    {% else %}
+                    <p class="right-wrapper">{{ bio }}</p>
+                {% endif %}
+                <div class="small-text">
+                    <div></div>
+                    <p>{{ username }}님에게 따뜻한 메시지를 남겨 주세요 &#9997;</p>
+                </div>
+            </div>
+            <div class="background">
+                {% if not listall %}
+                    <div class="how-to-use">
+                        <h2 class="title">사용 방법</h2>
+                        <p class="sub-title">&#x1F4CC; 메시지를 받으려면?</p>
+                        <div class="sub-text">
+                            <p>오른쪽 하단의 <img style="width:30px;"
+                                            src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/example_button(1).png"/>
+                                을 클릭하여 주변 사람들에게 링크를 공유해서 메시지를 받으면 됩니다.</p>
+
+                        </div>
+                        <p class="sub-title">&#x1F4CC; 메시지를 남기려면?</p>
+                        <div class="sub-text">
+                            <p>등록된 계정이 없어도 남길 수 있습니다</p>
+                        </div>
+                    </div>
+                {% elif listall %}
+                    {% for mesg in listall %}
+                        {% if mesg.read == 0 %}
+                            <img src="{{ mesg.deco }}" class="area_box change_num" id="{{ mesg.id }}"
+                                 style="top:{{ mesg.top }}px; left:{{ mesg.left }}px;">
+                        {% else %}
+                            <div class="read_card_wrapper change_num" id="{{ mesg.id }}"
+                                 style="top:{{ mesg.top }}px; left:{{ mesg.left }}px;">
+                                <img src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/card_img.jpg"
+                                     class="read_card"/>
+                                <p class="read_card_content">{{ mesg.msg }}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <div class="btn-wrapper">
+                    <button class="copyurl" href="#" onclick="clip(); return false;"><img
+                            src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/share.png"/></button>
+                    <button class="startbutton" type="submit"><img
+                            src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/new-message.png"/></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'js/card_list.js' %}"></script>
+    <!--<script src="/static/js/card_list.js"></script>-->
+{% endblock %}

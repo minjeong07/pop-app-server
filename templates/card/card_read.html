@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>받은 메시지 확인</title>
+
+    <!-- JQuery -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!--css-->
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <link href="{% static 'css/card/card_read.css' %}" rel="stylesheet" type="text/css">
+    <!--<link href="/static/css/card/card_read.css" rel="stylesheet" type="text/css">-->
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <form class="form-area" method="post" action="/card/update/{{ card.id }}">
+            {% csrf_token %}
+{#            <span class="back" type="submit">&#11013;</span>#}
+            <button type="submit">&#11013;</button>
+            </form>
+            {% if user.id == card.to_user_id %}
+            <span id="delete-btn">삭제</span>
+            {% endif %}
+        </div>
+        <div class="popup">
+            <div class="overlay">
+                <p class="close-icon"><img id="close-icon" src="{% static 'img/close.png' %}"/></p>
+                <img class="preview" src="{{ card.gift.gift_img.url }}"/>
+            </div>
+        </div>
+        <div class="gifticon_container">
+            <div class="gifticon">
+                <img class="preview" src="{{ card.gift.gift_img.url }}"/>
+            </div>
+            <div class="message-wrapper">
+                <div class="sended_title">
+                    {{ card.title }}
+                </div>
+                <div class="send_user">
+                    <span>From.</span>
+                    <span>{{ card.author }}</span>
+                </div>
+                <div class="content">
+                    <p>{{ card.msg }}</p>
+                </div>
+            </div>
+        </div>       
+
+        <div class="modal" id="modal">
+            <div class="overlay">
+                <div class="wrapper">
+                    <p>메시지를 삭제하시겠습니까?</p>
+                    <button id="close-modal">아니요</button>
+                    <button onclick="delete_message()">네</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--js-->
+    <script src="{% static 'js/card/card_read.js' %}"></script>
+    <!--<script src="/static/js/card/card_read.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}메시지 작성하기{% endblock %}
+
+{% block head %}
+<script src="https://kit.fontawesome.com/719ecf5a78.js" crossorigin="anonymous"></script>
+<link rel='stylesheet' href="{% static 'css/card/card_write.css' %}">
+{#    <link rel='stylesheet' href="/static/css/card/card_write.css">#}
+<style>
+    
+</style>
+{% endblock %}
+
+{% block main %}
+    <div class="main_container">
+        <!-- 장식선택 페이지 -->
+        <div class="sub_container" id="deco_page" >
+            <div id="deco_prev" class="prev_button"><i class="fa-solid fa-chevron-left"></i> 홈으로</div>
+            <h3>장식 선택하기</h3>
+            <div class="deco_img">
+                <img src="" alt="이미지를 선택하세요" id="preview_image">
+            </div>
+            <div class="deco_selec_wrap_container">
+                <div class="deco_selec_wrap">
+                    {% for d in deco_list %}
+                    <div class="deco_selec"><img class="deco_radio_img" src="{{ d.deco_img.url }}" alt="{{ d.deco_name }}"></div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="next_wrap"><div id="deco_next" class="next_button">다음으로</div></div>
+        </div>
+
+
+        <!-- 메시지 페이지 -->
+        <div class="sub_container" id="msg_page">
+            <div id="msg_prev" class="prev_button"><i class="fa-solid fa-chevron-left"></i> 이전으로</div>
+            <h3>메시지 쓰기</h3>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            <div class="next_wrap">            
+                <button id="msg_next" class="next_button">메시지 분석하기</button>
+            </div>
+            
+        </div>
+
+        <!-- 선물 추천 페이지 -->
+        <div class="sub_container" id="gift_page">
+            <div id="gift_prev" class="prev_button"><i class="fa-solid fa-chevron-left"></i> 장식, 메시지 수정하기</div>
+            <h3>선물 고르기</h3>
+            <div class="search_wrap">
+                <button class="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="text" id="search_gift" name="search_gift" placeholder="검색하기">
+            </div>            
+
+            <!-- js for문 써서 만들기 -->
+            <div class="gift_list_container_wrap">
+                <div class="gift_search_container">
+                </div>
+                <div class="gift_cont_container">
+                    <div class="gift_box_container">
+                        <div class="gift_tag">추천 선물</div>
+                        <div class="gift_box_wrap">
+                            <div class="gift_box"><img src="" alt="" class="gift_img">1</div>
+                            <div class="gift_box"><img src="" alt="" class="gift_img">2</div>
+                            <div class="gift_box"><img src="" alt="" class="gift_img">3</div>
+                            <div class="gift_box"><img src="" alt="" class="gift_img">4</div>
+                        </div>
+                    </div>
+
+                    <div class="gift_box_container">
+                        <div class="gift_tag"><span id="tag_span"></span> 관련 선물</div>
+                        <div class="gift_box_wrap">
+                            <div class="gift_box"><img src="" alt="" class="gift_img">1</div>
+                            <div class="gift_box"><img src="" alt="" class="gift_img">2</div>
+                            <div class="gift_box"><img src="" alt="" class="gift_img">3</div>
+                            <div class="gift_box"><img src="" alt="" class="gift_img">4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="next_wrap"><div id="gift_next" class="next_button">선물을 선택하세요</div></div>            
+        </div>
+
+        <!-- 미리보기 페이지 -->
+        <div class="sub_container" id="view_page">
+            <div id="view_prev" class="prev_button"><i class="fa-solid fa-chevron-left"></i> 이전으로</div>
+            <h3>완성 페이지</h3>
+            <div class="gi_con_wrap">
+                <div class="gifticon_container">
+                    <div class="gifticon_wrap">
+                        <img id="preview_img" src="" alt="">
+                        <div class="preview_input_wrap" id="ttwrap">
+                            <!-- <label for="title" class="gifticon_label">상품 이름</label> -->
+                            <input type="text" id="title" class="gifticon_input" placeholder="재미있는 상품 이름을 붙여주세요"><i id="title_btn" class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                        <div class="preview_input_wrap">
+                            <!-- <label for="author" class="gifticon_label">보내는 이</label> -->
+                            <input type="text" id="author" id="title" class="gifticon_input" placeholder="당신의 이름을 적어주세요"><i id="author_btn" class='fa-solid fa-pen-to-square'></i>
+                        </div>
+                    </div>
+                    <div class="tarea_wrap">
+                        <textarea name="message_result" id="message_result" cols="30" rows="10" disabled></textarea>
+                    </div>
+                    
+                </div>    
+            </div>
+                    
+            <div class="next_wrap">
+                <div id="cs">{% csrf_token %}</div>
+                <div id="view_next" class="next_button">메시지 작성 완료</div>
+            </div>
+        </div>
+
+    </div>
+    <script src="{% static 'js/card/card_write.js' %}"></script>
+    <!--<script src="/static/js/card/card_write.js"></script>-->
+
+{% endblock %}

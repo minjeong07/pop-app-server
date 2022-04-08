@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <title>Paper on Present | {% block title %}{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href="{% static 'css/base.css' %}" media='screen'>
+    <!-- <link rel='stylesheet' href="/static/css/base.css" media='screen'> -->
+    {% block head %}
+    {% endblock %}
+
+</head>
+<style>
+
+</style>
+<body>
+<nav id="navbar">
+    <div class="nav-wrapper">
+        <div class="logo">
+            <a href="/"><img src="{% static 'img/logo.png' %}"></a>
+        </div>
+        <ul id="logout">
+            <div class="mBtn">
+                <a href="javascript:;"><img src="{% static 'img/burger.png' %}" class="burger"></a>
+            </div>
+            <nav class="mNav">
+                <div class="closeBtn">
+                    <a href="javascript:;"><img src="{% static 'img/close.png' %}"></a>
+                </div>
+                
+                <ul class="sub">
+                    {% if user.is_authenticated %}
+                    <div class="menu">
+                        <li><p>{{ user.username }}님 <br> 반가워요&#x2B50;</p></li>
+                        <li><a href="/{{ user.username }}">받은 메시지</a></li>
+                        <li><a href="/mypage/">프로필 수정</a></li>
+                        <li><a href="/logout">로그아웃</a></li>
+                    </div>
+                    {% else %}
+                    <div class="menu">
+                        <li><p>안녕하세요&#x1F433;</p></li>
+                        <li><a href="/sign-in/">로그인</a></li>
+                        <li><a href="/sign-up/">회원가입</a></li>
+                    </div>
+                    {% endif %}
+                </ul>
+            </nav>
+            <div class="bg-shadow"></div>
+        </ul>
+    </div>
+</nav>
+
+
+<div id="all-container">
+
+    <div id=base_contain>
+        {% block main %}
+        {% endblock %}
+    </div>
+    
+
+</div>
+{% block script %}
+{% endblock %}
+<script src="{% static 'js/base.js' %}"></script>
+<!-- <script src="/static/js/base.js"></script> -->
+</body>
+
+</html>

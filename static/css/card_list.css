@@ -1,0 +1,228 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#container {
+    /*border : 1px solid lightgray;*/
+    max-width: 500px;
+    height: 800px;
+    background-color: #faffe1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 19%;
+    margin-top: 45px;
+}
+
+#container form {
+    width: 100%;
+}
+
+.background {
+    /*min-width: 335px;*/
+    /*min-height: 560px;*/
+    max-width: 100%;
+    height: 600px;
+    background-image: url("https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/yellow_background.jpg");
+    background-size: cover;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.text_box {
+    font-size: 15px;
+    width: 92%;
+}
+
+.area_box {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.btn-wrapper {
+    align-items: center;
+    width: 4rem;
+    height: 8rem;
+    z-index: 2;
+    top: 77%;
+    left: 85%;
+    position: absolute;
+}
+
+.btn-wrapper .startbutton {
+    width: 3.4rem;
+    height: 3.4rem;
+    background-color: rgba(255, 175, 175, 1);
+    color: white;
+    transition: all 0.2s linear;
+    border: 1px solid lightgoldenrodyellow;
+    border-radius: 100%;
+    margin-top: 0.5rem;
+}
+
+.btn-wrapper .startbutton img {
+    width: 85%;
+}
+
+.btn-wrapper .startbutton:hover {
+    transform: scale(1.02);
+}
+
+.btn-wrapper .copyurl {
+    width: 3.4rem;
+    height: 3.4rem;
+    background-color: dodgerblue;
+    color: white;
+    transition: all 0.2s linear;
+    border: 1px solid lightgoldenrodyellow;
+    border-radius: 100%;
+
+}
+
+.btn-wrapper .copyurl:hover {
+    transform: scale(1.02);
+
+}
+
+.text {
+    margin-top: 5%;
+    font-size: 25px;
+}
+
+.msg_to {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+
+.read_card_wrapper {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+.read_card_wrapper .read_card {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.read_card_wrapper .read_card_content {
+    width: 80px;
+    height: 50px;
+    font-weight: 500;
+    font-size: 11px;
+    margin: 18px 10px;
+    position: absolute;
+    display: -webkit-box;
+    white-space: normal;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    cursor: pointer;
+    letter-spacing: -1.2px;
+}
+
+.to_whom {
+    width: 65%;
+    height: 160px;
+    margin: 20px auto 30px;
+    border-color: white;
+    background-color: white;
+    border-radius: 21px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 80% 20%;
+}
+
+.to_whom .left_wrapper {
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.to_whom .left_wrapper img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+.to_whom .left-wrapper p {
+
+}
+
+.to_whom .right-wrapper {
+    font-size: 13px;
+    display: -webkit-box;
+    white-space: normal;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    width: 175px;
+    height: 100px;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+
+.to_whom .small-text {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    letter-spacing: -1px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.to_whom .small-text div {
+    height: 1px;
+    background-color: grey;
+    width: 92%;
+    margin: 0 auto 4px;
+}
+
+.to_whom .small-text p {
+
+}
+
+.how-to-use {
+    width: 70%;
+    text-align: center;
+}
+
+.how-to-use .title {
+    font-weight: 600;
+    text-align: center;
+}
+
+.how-to-use .sub-title {
+    font-weight: 900;
+    font-size: 18px;
+    margin-top: 2.4rem;
+    margin-bottom: 0.6rem;
+    text-align: center;
+}
+
+.how-to-use .sub-text {
+    width: 100%;
+    margin: 0 auto;
+    letter-spacing: -1px;
+    font-weight: 400;
+    text-align: center;
+}

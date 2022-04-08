@@ -1,0 +1,423 @@
+/* 페이지 공용 */
+#navbar{
+    display: none;
+}
+#all-container{
+    padding: 0;
+}
+.main_container {
+    max-width: 500px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #FBFFE2;
+    position: relative;
+    z-index: 4;
+    overflow: hidden;
+}
+.main_container .sub_container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 10px;
+}
+.main_container #deco_page {
+    z-index: 10;
+    background-color: #FBFFE2;
+}
+.main_container #msg_page {
+    z-index: 8;
+    background-color: #FBFFE2;
+}
+.main_container #gift_page {
+    z-index: 6;
+    background-color: #FBFFE2;
+}
+.main_container #view_page {
+    z-index: 4;
+    background-color: #FBFFE2;
+}
+.main_container .moved {
+    animation-duration: 0.8s;
+    animation-name: goLeft;
+    animation-fill-mode: forwards;
+}
+@keyframes goLeft {
+    from {
+        left: 0;
+    }
+    to{
+        left: -100%;
+    }
+}
+.main_container .back {
+    animation-duration: 0.8s;
+    animation-name: goRight;
+    animation-fill-mode: forwards;
+}
+@keyframes goRight {
+    from {
+        left: -100%;
+    }
+    to{
+        left: 0;
+    }
+}
+
+.main_container .sub_container .prev_button {
+    text-decoration: none;
+    color: #FF9999;
+    font-size: 1.25rem;
+    font-weight: bold;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    padding: 5px;
+    width: 250px;
+    cursor: pointer;
+}
+.main_container .sub_container .next_wrap {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: #FBFFE2;
+}
+.main_container .sub_container .next_button {
+    text-decoration: none;
+    text-align: center;
+    color: #FBFFE2;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+    height: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #FFAFAF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    color: #FF9999;
+    font-weight: bold;
+}
+
+
+/* 여기부터는 장식페이지 */
+.deco_img {
+    width: 100%;
+    height: 200px;
+    background-color: #FFEBCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#preview_image {
+    width: 160px;
+    height: 160px;
+    color: #FF9999;
+}
+.deco_selec_wrap_container {
+    overflow: auto;
+    max-height: 75%;
+    padding-bottom: 50px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.deco_selec_wrap_container::-webkit-scrollbar{
+    display: none;
+}
+
+
+.deco_selec_wrap {
+    margin-top: 30px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
+    row-gap: 10px;    
+    overflow: auto;
+}
+.deco_selec_wrap .deco_selec {
+    /* max-width: 100px;
+    max-height: 100px; */
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+    background-color: #FFEBCC;
+    margin: auto;
+    text-align: center;
+    color: #FF9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.deco_selec_wrap .deco_selec .deco_radio_img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.deco_selec_wrap .selected {
+    background-color: #FFAFAF;
+    color: #FBFFE2;
+}
+
+
+/* 여기부터는 메시지 페이지 */
+#message{
+    width: 100%;
+    height: 70%;
+    background-color: #FFEBCC;
+    color: #FF9999;
+    border: none;
+}
+
+
+.modal_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 14;
+}
+.modal_wrap .modal_div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 200px;
+    height: 100px;
+    z-index: 15;
+    background-color: #FBFFE2;
+    border-radius: 10px;
+    color: #FF9999;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_wrap .modal_div .modal_text {
+    width: 100%;
+}
+
+
+
+/* 선물페이지 */
+.search_wrap {
+    display: flex;
+    flex-direction: row;
+}
+.search_wrap .search_button {
+    width: 10%;
+    height: 30px;
+    border-radius: 7px 0 0 7px;
+    border: none;
+    cursor: pointer;
+    color: #FBFFE2;
+    background-color: #FFAFAF;
+}
+.search_wrap #search_gift {
+    width: 90%;
+    height: 30px;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    color: #FF9999;
+    background-color: #FFEBCC;
+    
+}
+.search_wrap #search_gift::placeholder {
+    color: #FFAFAF;
+}
+
+.gift_list_container_wrap {
+    margin-top: 10px;
+    max-height: 85%; 
+    margin-bottom: 50px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.gift_list_container_wrap::-webkit-scrollbar{
+    display: none;
+}
+.gift_cont_container {
+    padding-bottom: 50px;
+}
+
+.gift_box_container {
+    width: 100%;
+}
+.gift_box_container .gift_tag {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 5px;
+    color: #FF9999;
+}
+.gift_box_container .gift_box_wrap {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 20px 4%;
+    word-wrap: break-word;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin-bottom: 30px;
+}
+.gift_box_container .gift_box_wrap::-webkit-scrollbar{
+    display: none;
+}
+.gift_box_container .gift_box_wrap .gift_box {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #FF9999;
+    background-color: #FFEBCC;
+    text-align: center;
+    margin-right: 5px;
+    border: transparent 2px solid;
+}
+
+.gift_box_container .gift_box_wrap .selected_gift {
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #FBD6D2;
+}
+.gift_box_container .gift_box_wrap .gift_box .coupon_img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    cursor: pointer;
+}
+
+.gift_box_container .gift_box_wrap .gift_box .gift_img {
+    display: block;
+    width: 98%;
+    height: 80%;
+    margin: auto;
+    cursor: pointer;
+    /* background-color: cadetblue; */
+}
+.gift_img_name {
+    width: 160px;
+    height: 49px;
+    /* white-space: nowrap;  */
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    margin: auto;
+}
+
+.gift_button_span {
+    max-width: 225px;
+    /* max-height: 30px; */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: inline-block;
+    margin-right: 5px;
+}
+.gift_button_span_two{
+    display: inline-block;
+    
+}
+
+/* 여기부터는 메시지 페이지 */
+.gi_con_wrap{
+    width: 100%;
+    height: 80%;
+    /*background-color: #FA837F;*/
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.gifticon_container{
+    width: 353px;
+    height: 720px;
+    background-image: url("https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/gifticon2.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.gifticon_wrap{
+    width: 100%;
+    /* height: 35%; */
+    background-color: transparent;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.gifticon_wrap #preview_img{
+    width: 230px;
+    height: 230px;
+}
+.gifticon_wrap .preview_input_wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    position: relative;
+}
+#ttwrap {
+    margin-top: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.gifticon_wrap .gifticon_label {
+    width: 25%;
+    display: inline-block;
+    color: #FF9999;
+}
+.gifticon_wrap .gifticon_input {
+    width: 220px;
+    display: inline-block;
+    border: none;
+    border-bottom: #FF9999 solid 1px;
+    color: #FF9999;
+    background-color: transparent;
+    text-align: center;
+}
+.fa-pen-to-square{
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+    font-size: 1rem;
+    color: #999999;
+    cursor: pointer;
+}
+.tarea_wrap {
+    padding: 40px;
+    margin-top: 40px; 
+}
+#message_result {
+    width: 100%;
+    background-color: transparent;
+    color: #FF9999;
+    border: none;
+}
+
+
+#base_contain{
+    height: 100vh;
+}
+

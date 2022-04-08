@@ -1,0 +1,62 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+ul.new-users {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 105px);
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 10px
+}
+
+li.user-box {
+    width: 100%;
+    height: 100px;
+    background-color: #F7E9D7;
+    border-radius: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.user-box p.to {
+    font-weight: bolder;
+    margin-top: 26px;
+    margin-bottom: 0;
+}
+
+.user-box p.name {
+    width: 100%;
+    height: 36px;
+    margin-bottom: 0;
+    word-break: break-word;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.user-box img {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    float: right;
+}
+div.cate {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    justify-content: center;
+    margin-top : 60px;
+}
+.cate p{
+    background-color: black;
+    height: 1px;
+    width: 40%;
+    margin-top:15px
+}
+.cate span {
+    margin: 0 20px;
+    font-size: 20px;
+    font-weight: 900;
+}

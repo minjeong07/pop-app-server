@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block head %}
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/signin.css' %}" media='screen'>
+    <!--<link rel='stylesheet' href="/static/css/signin.css" media='screen'>-->
+{% endblock %}
+{% block title %}
+    로그인
+{% endblock %}
+{% block main %}
+    <div class="login-box ">
+        <img class="logo" src="https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/logo_resize.png"/>
+        <form class="form-area" method="post" action="/sign-in/">
+            {% csrf_token %}
+            <div class="form-group mt-2 mb-2">
+                <label for="username">이름</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group mt-2 mb-2">
+                <label for="password">비밀번호</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <hr>
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <div style="text-align: center; width:240px;">
+                <button type="submit" class="btn to_login">로그인</button>
+                <a href="/sign-up/" class="btn to_signup">회원가입 페이지로</a>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'js/signin.js' %}"></script>
+
+{% endblock %}
