@@ -4,7 +4,6 @@
 
 {% block head %}
     <link rel='stylesheet' href="{% static 'css/edit_profile.css' %}" media='screen'>
-    <!--<link rel='stylesheet' href="/static/css/edit_profile.css" media='screen'>-->
 
 {% endblock %}
 
@@ -33,7 +32,7 @@
                             {% endif %}
                         </div>
                         <label for="input_file" id="edit_pro_label">이미지 업로드</label>
-                        <input type="file" id="input_file" onchange="readURL(this);" name="imgs"/>
+                        <input type="file" id="input_file" onchange="preview(this)" accept="image/*" name="profile_img"/>
                     </div>
                     <div class="bio">
                         <p>소개글</p>
@@ -74,12 +73,10 @@
                     {% endfor %}
                 </ul>
                 <input type="submit" role="button" id="rebert_button" value="수정하기">
-                {#                <a href="/{{ user.id }}" id="submit_button" value="메시지 확인하기">메시지 확인하기</a>#}
             </div>
         </form>
     </div>
 
 
     <script src="{% static 'js/edit_profile.js' %}"></script>
-    <!-- <script src="/static/js/edit_profile.js"></script> -->
 {% endblock %}
