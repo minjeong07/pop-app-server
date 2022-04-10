@@ -13,6 +13,8 @@ import os
 import requests
 from django.contrib.auth import get_user_model
 import re
+from uuid import uuid4
+
 
 # Create your views here.
 
