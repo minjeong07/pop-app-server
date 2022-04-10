@@ -10,11 +10,6 @@
 {% block main %}
 
     <div class="edit-box">
-        <div style="width: 100%; height: 40px;">
-            {% if modified %}
-                <p style="float:right;">&#x2705; {{ modified }}</p>
-            {% endif %}
-        </div>
         <form method="POST" action="/mypage/" enctype="multipart/form-data">
             {% csrf_token %}
             <div id="edit_box_box">
