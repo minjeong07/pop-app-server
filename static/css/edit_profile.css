@@ -256,7 +256,7 @@ form {
     grid-column-start: 2;
     grid-column-end: 3;
     padding-left: 15px;
-    padding-top: 15px;
+    padding-top: 6px;
     width: 100%;
     height: 100%;
 }
@@ -267,8 +267,10 @@ form {
     letter-spacing: 2px;
 }
 
-#tempspace .bio span {
+#tempspace .bio textarea {
     font-size: 13px;
     display: -webkit-box;
     opacity: 0.9;
+    height: 90px;
+    width: 100%;
 }

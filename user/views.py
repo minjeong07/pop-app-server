@@ -23,6 +23,7 @@ def mypage(request):
             file_name = str(uuid4().hex)
             upload_file.name = file_name + '.' + upload_file.name.split('.')[-1]
             user.profile_img = upload_file
+        user.bio = request.POST.get('bio', '')
         user.tag.clear()
         user.tag.add(*tags)
         user.save()
