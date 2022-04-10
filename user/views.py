@@ -25,26 +25,23 @@ def mypage(request):
     user = User.objects.get(id=request.user.id)
     if request.method == "GET":
         tag_list = list(user.tag.names())
-        return render(request, "user/edit_profile.html", {'tag_list':tag_list})
+        return render(request, "user/edit_profile.html", {'tag_list': tag_list})
     if request.method == "POST":
         tags = []
-        # print(request.POST, request.FILES)
-        tagcount= int(request.POST.get('tag_count','0'))
-        # print(tagcount)
+        tagcount = int(request.POST.get('tag_count', '0'))
         for i in range(tagcount):
-            tag=request.POST.get(f'taginput{i}', '')
-            #'데이터' 형식으로 들어오는데 양끝 '문자 제거
-            tag=tag[:-1][1:]
+            tag = request.POST.get(f'taginput{i}', '')
+            tag = tag[:-1][1:]
             tags.append(tag)
-            # print(tags[-1])
-        # print(tags)
         if request.FILES:
-            user.profile_img = request.FILES.get("imgs")
+            upload_file = request.FILES.get("profile_img")
+            file_name = str(uuid4().hex)
+            upload_file.name = file_name + '.' + upload_file.name.split('.')[-1]
+            user.profile_img = upload_file
         user.tag.clear()
         user.tag.add(*tags)
         user.save()
-        msg = "수정 완료"
-        return render(request, "user/edit_profile.html", {'modified':msg})
+        return redirect('/mypage/')
 
 
     # true_user = auth.authenticate(request, username=username, password=password)
