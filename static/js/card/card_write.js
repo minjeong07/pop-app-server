@@ -107,7 +107,7 @@ async function postToGift() {
 
     let jsonData = await fetchRecommend(data);
     showRecommendList(jsonData);
-    console.log(jsonData);
+    // console.log(jsonData);
     document.querySelector("body").removeChild(document.querySelector(".modal_wrap"));
     msg_page.className = "sub_container moved";
 }
@@ -160,27 +160,32 @@ function showRecommendList(jsondata) {
     });
 
     let tagList = [jsondata.slice(8,)];
-    tagList.forEach(giftList => {
+    if (tagList[0].length != 0) {
+        tagList.forEach(giftList => {
+            let $reListCon = document.createElement("div")
+            $reListCon.className = "gift_box_container"
+            $reListCon.innerHTML = '<div class="gift_tag">유저 선호 태그 관련 선물</div>'
+            let $reWrap = document.createElement("div")
+            $reWrap.className = "gift_box_wrap"
+            $reListCon.appendChild($reWrap)
+            giftList.forEach(e => {
+                let gBox = document.createElement("div")
+                gBox.className = "gift_box"
+                gBox.innerHTML = `<img src="${e.gift_img}" alt="${e.id}" class="gift_img"><div class="gift_img_name">${e.gift_name}</div>`
+                $reWrap.append(gBox)
+            });
+            $gcCont.appendChild($reListCon)
+            giftWrap = document.querySelectorAll(".gift_box_wrap");
+            giftWrap.forEach(element => {
+                element.addEventListener("click", giftSelect)
+            });
+        });
+    } else {
         let $reListCon = document.createElement("div")
         $reListCon.className = "gift_box_container"
-        $reListCon.innerHTML = '<div class="gift_tag">유저 선호 태그 관련 선물</div>'
-        let $reWrap = document.createElement("div")
-        $reWrap.className = "gift_box_wrap"
-        $reListCon.appendChild($reWrap)
-        giftList.forEach(e => {
-            let gBox = document.createElement("div")
-            gBox.className = "gift_box"
-            gBox.innerHTML = `<img src="${e.gift_img}" alt="${e.id}" class="gift_img"><div class="gift_img_name">${e.gift_name}</div>`
-            $reWrap.append(gBox)
-        });
+        $reListCon.innerHTML = '<div class="gift_tag">유저의 선호 태그가 없습니다.</div>'
         $gcCont.appendChild($reListCon)
-        giftWrap = document.querySelectorAll(".gift_box_wrap");
-        giftWrap.forEach(element => {
-            element.addEventListener("click", giftSelect)
-        });
-    });
-
-
+    }
 }
 
 function fetchSearch(data) {
@@ -344,31 +349,37 @@ function fetchPostMessage(data) {
 }
 
 
-async function postMessage() {
-    let giftSelected = document.getElementsByClassName("gift_box selected_gift")[0]
-    let giftId = giftSelected.firstChild.alt
-    let decoSelected = previewImage.src.split("?")[0]
-    if (title.value === "") {
-        return alert("상품 제목을 붙여주세요!")
-    } else if (author.value === "") {
-        return alert("보내는 이를 적어주세요!")
-    }
+async function postMessage(event) {
+    let clickTime = event['timeStamp'];
+    if (clickTime && (clickTime - _lastClickTime) < 100) {
+        let giftSelected = document.getElementsByClassName("gift_box selected_gift")[0]
+        let giftId = giftSelected.firstChild.alt
+        let decoSelected = previewImage.src.split("?")[0]
+        if (title.value === "") {
+            return alert("상품 제목을 붙여주세요!")
+        } else if (author.value === "") {
+            return alert("보내는 이를 적어주세요!")
+        }
 
-    let data = new FormData();
-    data.append("csrfmiddlewaretoken", csrftoken)
-    data.append("to_user_id", toUserId)
-    data.append("gift_id", giftId)
-    data.append("msg", message.value)
-    data.append("deco", decoSelected)
-    data.append("title", title.value)
-    data.append("author", author.value)
+        let data = new FormData();
+        data.append("csrfmiddlewaretoken", csrftoken)
+        data.append("to_user_id", toUserId)
+        data.append("gift_id", giftId)
+        data.append("msg", message.value)
+        data.append("deco", decoSelected)
+        data.append("title", title.value)
+        data.append("author", author.value)
 
-    let server_msg = await fetchPostMessage(data)
-    console.log(server_msg)
-    alert(server_msg.server)
-    window.location.pathname = toUserId
+        let server_msg = await fetchPostMessage(data)
+        console.log(server_msg)
+        alert(server_msg.server)
+        window.location.pathname = toUserId
+    };
+    console.log("clicked")
+    _lastClickTime = clickTime;
 }
 
 // 353*720
+let _lastClickTime = new Date().getTime();
 
 view_next.addEventListener("click", postMessage)

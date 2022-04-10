@@ -28,7 +28,7 @@ async def recommend_gift_list(id: int, msg: str = ""):
     user_tag = []
     user = await sync_to_async(User.objects.get)(id=id)
     tag_list = await sync_to_async(list)(user.tag.names())
-    if tag_list:        
+    if tag_list:
         for tag in tag_list:
             tag_result = await search_list_gift(tag)
             tag_result = tag_result[:10]

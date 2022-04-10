@@ -3,13 +3,6 @@
     src: url("https://sparta-team11.s3.ap-northeast-2.amazonaws.com/fonts/Cafe24SsurroundAir.ttf");
 }
 
-body{
-    /*max-width: 500px;*/
-    /*position: relative;*/
-    /*margin: auto;*/
-    /*overflow-x: hidden;*/
-}
-
 #navbar {
     background: rgba(255, 175, 175, 1);
     color: black;
@@ -17,8 +10,6 @@ body{
     top: 0;
     height: 80px;
     line-height: 80px;
-    /*width: 100%;*/
-    max-width: 500px;
     z-index: 5;
     margin: 0 auto;
 }
@@ -41,7 +32,6 @@ body{
     display: inline-block;
     margin: 0;
     height: 80px;
-    /*grid-area: a;*/
 }
 
 #menu {
@@ -75,8 +65,6 @@ body{
     max-width: 25px;
 }
 
-/*                                */
-/*                               */
 .mBtn a {
     display: block;
 }
@@ -86,9 +74,8 @@ body{
     position: absolute;
     background-color: #fff;
     top: 0;
-    /*right: -100%;*/
     width: 40%;
-    height: 100vmax;
+    min-height: 830px;;
     transition: all 0.5s ease;
 }
 
@@ -175,15 +162,6 @@ body{
     -webkit-transition: all 0.8s ease;
 }
 
-/*#navbar li a:before, #navbar li a:after {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    width: 0%;*/
-/*    height: 1px;*/
-/*    bottom: -1px;*/
-/*    background: rgb(13, 26, 38);*/
-/*}*/
-
 .sub li a:before, .sub li a:after {
     content: '';
     position: absolute;
@@ -193,42 +171,24 @@ body{
     background: rgb(13, 26, 38);
 }
 
-/*#navbar li a:before {*/
-/*    left: 0;*/
-/*    transition: 0.5s;*/
-/*}*/
 
 .sub li a:before {
     left: 0;
     transition: 0.5s;
 }
 
-/*#navbar li a:after {*/
-/*    background: rgb(13, 26, 38);*/
-/*    right: 0;*/
-/*}*/
 
 .sub li a:after {
     background: rgb(13, 26, 38);
     right: 0;
 }
 
-/*#navbar li a:hover:before {*/
-/*    background: rgb(13, 26, 38);*/
-/*    width: 100%;*/
-/*    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);*/
-/*}*/
 
 .sub li a:hover:before{
     background: rgb(13, 26, 38);
     width: 100%;
     transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-
-/*#navbar li a:hover:after {*/
-/*    background: transparent;*/
-/*    width: 100%;*/
-/*}*/
 
 .sub li a:hover:after{
     background: transparent;
@@ -237,9 +197,8 @@ body{
 
 
 #all-container {
+    min-width: 500px;
     z-index: 3;
-    /*padding-top: 70px;*/
-
 }
 
 #base_contain {
@@ -254,4 +213,15 @@ body{
 
 ul.sub div.menu li p {
     line-height: 25px;
+}
+
+@media (max-width: 500px) {
+    #navbar {
+        min-width: 500px;
+    }
+}
+@media (min-width: 500px) {
+    #navbar {
+        max-width: 500px;
+    }
 }
