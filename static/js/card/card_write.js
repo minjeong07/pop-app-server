@@ -185,7 +185,7 @@ function showRecommendList(jsondata) {
         $reListCon.className = "gift_box_container"
         $reListCon.innerHTML = '<div class="gift_tag">유저의 선호 태그가 없습니다.</div>'
         $gcCont.appendChild($reListCon)
-    }
+    }  
 }
 
 function fetchSearch(data) {

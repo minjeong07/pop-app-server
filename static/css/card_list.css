@@ -156,10 +156,10 @@
 }
 
 .to_whom .left_wrapper img {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .to_whom .left-wrapper p {

@@ -81,7 +81,7 @@ for (let i = 0; box.length; i++) {
         let id = this.id
         let top = this.style.top
         let left = this.style.left
-        console.log('id', id)
+        // console.log('id', id)
         isDragging = false;
 
         let data = new FormData()
