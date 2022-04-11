@@ -28,7 +28,14 @@
                 <textarea type="text" class="form-control" id="bio" name="bio"
                           style="height: 90px; font-size:14px;" placeholder="'나'에 대한 소개나 인사말을 작성해 주세요(120자 이내)"></textarea>
             </div>
-            <div class="alert alert-danger" id="error" role="alert"></div>
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% else %}
+                <div class="alert alert-danger" id="error" role="alert"></div>
+            {% endif %}
+            <div class="alert alert-info" id="pointer" role="alert"></div>
             <div style="text-align: center">
                 <button type="submit" id="signup-btn" class="btn to_signup">회원가입</button>
                 <a href="/sign-in/" class="btn to_login">로그인 페이지로</a>

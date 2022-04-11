@@ -1,4 +1,5 @@
 from django.contrib import auth
+from django.contrib.auth import get_user_model
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from .models import User
@@ -41,8 +42,12 @@ def sign_up_view(request):
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         bio = request.POST.get('bio', '')
-        User.objects.create_user(username=username, password=password, bio=bio)
-        return redirect('/sign-in/')
+        exist_user = get_user_model().objects.filter(username=username)
+        if exist_user:  # 아이디 중복 확인
+            return render(request, 'user/signup.html', {'error': '사용중인 이름 입니다.'})
+        else:  # 유저 생성
+            User.objects.create_user(username=username, password=password, bio=bio)
+            return redirect('/sign-in/')
 
 
 def sign_in_view(request):
