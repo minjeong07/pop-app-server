@@ -65,14 +65,30 @@ class TestCardService(TestCase):
         test_image = get_temporary_image(temp_file).name
         User.objects.create(username="username", profile_img=test_image, email="test@email.com")
         async_to_sync(create_gift)(gift_name="gift_name1", gift_img=test_image, gift_desc="gift_desc1", tags="다이어트")
-        async_to_sync(create_msg)(to_user_id=1, gift_id=1, msg="msg1", deco="deco", author="author", title="title")
-        
-        pass
+        async_to_sync(create_msg)(to_user_id=1, gift_id=1, msg="msg1", deco="deco", author="author", title="title", top=0, left=0)
+        try:
+            with self.assertNumQueries(7):
+                new_msg = async_to_sync(get_msg)(id=1)
+                self.assertEqual(new_msg.top, 0)
+                self.assertEqual(new_msg.left, 0)
+                status1, url1 = async_to_sync(decoration_move_service)(id=1, top=0, left=0)
+                self.assertEqual(status1, 200)
+                self.assertEqual(url1, {"url": "/card/read/1"})
+                new_msg1 = async_to_sync(get_msg)(id=1)
+                self.assertEqual(new_msg1.top, 0)
+                self.assertEqual(new_msg1.left, 0)
+                status2, url2 = async_to_sync(decoration_move_service)(id=1, top=100, left=100)
+                self.assertEqual(status2, 204)
+                self.assertEqual(url2, None)
+                new_msg2 = async_to_sync(get_msg)(id=1)
+                self.assertEqual(new_msg2.top, 100)
+                self.assertEqual(new_msg2.left, 100)
+        finally:
+            tearDownModule()
 
 
 
 def tearDownModule():
-    # print("\n Deleting temporary files...\n")
     try:
         shutil.rmtree(TEST_DIR)
     except OSError:
