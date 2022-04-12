@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 19%;
-    margin-top: 45px;
+    margin: 100px auto 0;
 }
 
 #container form {
@@ -23,7 +23,7 @@
     /*min-width: 335px;*/
     /*min-height: 560px;*/
     max-width: 100%;
-    height: 600px;
+    height: 660px;
     background-image: url("https://sparta-team11.s3.ap-northeast-2.amazonaws.com/img/yellow_background.jpg");
     background-size: cover;
     color: black;
@@ -156,10 +156,10 @@
 }
 
 .to_whom .left_wrapper img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .to_whom .left-wrapper p {

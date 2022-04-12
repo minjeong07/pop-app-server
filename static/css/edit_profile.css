@@ -67,7 +67,7 @@ form {
     border-bottom-color: #e2e2e2;
     border-radius: 0.4em;
     width: 88%;
-    margin-top: 15px;
+    margin-top: 20px;
     font-weight: 800;
 }
 
@@ -148,6 +148,7 @@ form {
 */
 
 #tag-list > .active {
+    color: black;
     padding: 4px 8px;
     font-size: inherit;
     line-height: normal;
