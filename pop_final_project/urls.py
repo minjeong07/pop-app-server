@@ -23,6 +23,7 @@ from ninja import NinjaAPI
 from card.apis.v1.card_router import router as card_router
 
 api = NinjaAPI()
+api.docs_url = '/pop/docs/'
 api.add_router("/card/", card_router)
 
 urlpatterns = [
